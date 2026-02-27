@@ -1,5 +1,7 @@
 pipeline
 {
+    agent any
+
     stages
     {
         stage('STAGE')
@@ -17,9 +19,6 @@ pipeline
             steps
             {
                 echo "This is STAGE2"
-                sh'''
-                sleep 10'''
-
             }
         }
     }
