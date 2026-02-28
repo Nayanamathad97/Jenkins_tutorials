@@ -1,22 +1,22 @@
-pipeline
-{ agent {label 'slave1'}
-    stages{
-        stage('STAGE1')
-        {
-            steps{ echo "stage1"
-                   sh "pwd"
+// pipeline
+// { agent {label 'slave1'}
+//     stages{
+//         stage('STAGE1')
+//         {
+//             steps{ echo "stage1"
+//                    sh "pwd"
 
-            }
-        }
+//             }
+//         }
 
-        stage('STAGE2')
-        {
-            steps{
-                echo "stage2"
-                sh '''
-                #!/bin/bash
-                pwd'''
-            }
-        }
-    }
-}
+//         stage('STAGE2')
+//         {
+//             steps{
+//                 echo "stage2"
+//                 sh '''
+//                 #!/bin/bash
+//                 pwd'''
+//             }
+//         }
+//     }
+// }

@@ -11,6 +11,7 @@ pipeline
 
             }
         }
+        
         stage('build')
         { agent 'slave2'
             steps
