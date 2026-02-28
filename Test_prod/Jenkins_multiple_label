@@ -1,0 +1,25 @@
+pipeline
+{ agent none
+    stages
+    {
+        stage('STAGE1')
+        { agent 'slave1'
+            steps
+            {
+                echo "stage 1"
+                sleep 10
+
+            }
+        }
+        stage('build')
+        { agent 'slave2'
+            steps
+            {
+                echo "stage 2"
+                sh '''
+                #!/bin/bash
+                ls -ltr
+            }
+        }
+    }
+}
