@@ -6,7 +6,7 @@ pipeline
         { agent {label 'slave1'}
             steps
             {
-                echo "stage 1"
+                echo "stage 1 with labelone"
                 sleep 10
 
             }
@@ -16,7 +16,7 @@ pipeline
         { agent {label 'slave2'}
             steps
             {
-                echo "stage 2"
+                echo "stage 2 with label2"
                 sh '''
                 #!/bin/bash
                 ls -ltr '''
