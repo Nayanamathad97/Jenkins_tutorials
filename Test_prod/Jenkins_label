@@ -1,0 +1,21 @@
+pipeline
+{ agent {label slave1}
+    stages{
+        stage('STAGE1')
+        {
+            steps{
+
+            }
+        }
+
+        stage('STAGE2')
+        {
+            steps{
+                echo "stage2"
+                sh '''
+                #!/bin/bash
+                pwd'''
+            }
+        }
+    }
+}
