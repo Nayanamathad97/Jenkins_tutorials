@@ -9,7 +9,7 @@ pipeline
         stage('STAGE1')
         {
             environment {
-                stage = stage1
+                stage = 'stage1'
             }
             steps
             {
