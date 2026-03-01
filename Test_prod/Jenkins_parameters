@@ -2,8 +2,8 @@ pipeline
 { agent none
   parameters
   {
-    string(name:'NAME',defaultvalue:'',description:'tell me your name')
-    booleanParam(name:'SKIP_TEST',defaultvalue:'false',description:'want to skip test runs to direct deploy')
+    string(name:'NAME',defaultValue:'',description:'tell me your name')
+    booleanParam(name:'SKIP_TEST',defaultValue:'false',description:'want to skip test runs to direct deploy')
     choice(name:'BRANCH',choices:['dev','test','prod'],description:'choose environment to deploy')
 
     }
