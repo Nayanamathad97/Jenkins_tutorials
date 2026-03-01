@@ -7,7 +7,7 @@ pipeline
   }
     stages
     {
-        stage('STAGE')
+        stage('STAGE1')
         {
             steps
             {
@@ -16,9 +16,9 @@ pipeline
                 echo "BRANCH : ${params.BRANCH}"
 
                 sh '''
-                echo "NAME: ${NAME}
-                echo "SKIP_TEST: ${SKIP_TEST}
-                echo "BRANCH: ${BRANCH}
+                echo "NAME: ${NAME}"
+                echo "SKIP_TEST: ${SKIP_TEST}"
+                echo "BRANCH: ${BRANCH}"
                 '''
             }
         }
