@@ -1,5 +1,7 @@
-pipeline
-{ agent {label '!master'}
+pipeline{
+    <!-- agent {label 'slave1 && slave2'}
+    agent {label 'slave1 || slave2'} -->
+    agent {label '!master'}
     stages
     {
         stage('STAGE1')
