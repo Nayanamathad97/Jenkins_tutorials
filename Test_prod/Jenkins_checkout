@@ -6,7 +6,7 @@ pipeline {
         CURRENT_ENV = 'prod'
     }
     stages {
-        Stage('CHECKOUT REPOA') {
+        stage('CHECKOUT REPOA') {
             steps {
                 checkout ([ $class: 'GitSCM',
                             branches: [[name: '*/main']], 
@@ -22,7 +22,7 @@ pipeline {
                         '''
             }
         }
-        Stage('STAGE1 when branch main') {
+        stage('STAGE1 when branch main') {
             when {
                 expression {return env.GIT_BRANCH == 'origin/main'}
             }
@@ -34,7 +34,7 @@ pipeline {
                 '''
             }   
         }
-        Stage('when environment') {
+        stage('when environment') {
             when {
                 environment name: 'CURRENT.ENV', Value : 'prod'
             }
@@ -46,7 +46,7 @@ pipeline {
                 '''
             }
         }
-        Stage('when parameter') {
+        stage('when parameter') {
             when {
                 expression {Params.deploy == true}
             }
