@@ -3,7 +3,7 @@ pipeline {
         booleanParam(name:'DEPLOY' , description:'want to deploy to production')
     }
     environment {
-        CURRENT.ENV = 'prod'
+        CURRENT_ENV = 'prod'
     }
     stages {
         Stage('CHECKOUT REPOA') {
