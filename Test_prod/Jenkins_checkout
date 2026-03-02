@@ -36,7 +36,7 @@ pipeline {
         }
         stage('when environment') {
             when {
-                environment name: 'CURRENT.ENV', Value : 'prod'
+                environment name: 'CURRENT_ENV', value : 'prod'
             }
             steps {
                 echo "Stage2 running"
