@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('STAGE1_a') {
             steps {
-                catcherror('buildresult':'SUCCESS','stageresult':'FAILURE') {
+                catchError('buildresult':'SUCCESS','stageresult':'FAILURE') {
                     echo "this is stage1_a"
                     sh '''
                     sleep 3
