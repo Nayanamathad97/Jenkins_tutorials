@@ -10,13 +10,13 @@ pipeline {
         stage('CHECKOUT REPOA') {
             steps {
                 checkout ([ $class: 'GitSCM',
-                            branches: [[name: '*/main']], 
-                            extensions: [], 
-                            userRemoteConfigs: [[
-                                credentialsId: 'jaintpharsha', 
-                                url: 'https://github.com/jaintpharsha/mern_3tire.git'
-                            ]]
-                        ])
+                    branches: [[name: '*/main']], 
+                    extensions: [], 
+                    userRemoteConfigs: [[
+                        credentialsId: 'nayanamathad97@gmail.com', 
+                        url: 'https://github.com/Nayanamathad97/Jenkins_practice.git'
+                    ]]
+                ])
                         sh '''
                         echo GIT_BRANCH : $GIT_BRANCH
                         echo BRANCH_NAME : $BRANCH_NAME
