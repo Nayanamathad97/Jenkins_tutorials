@@ -12,7 +12,7 @@ pipeline {
 
     stages {
         
-        Stage('CHECKOUT_REPOA') {
+        stage('CHECKOUT_REPOA') {
             steps {
                 checkout ([ $class: 'GitSCM',
                     branches: [[name: '*/main']], 
