@@ -8,7 +8,7 @@ pipeline{
             }
         }
         stage('PARALLEL TESTING') {
-            PARALLEL {
+            parallel {
                 stage('WINDOWS TESTING') {
                     steps {
                         echo "This is parallel windows testing"
