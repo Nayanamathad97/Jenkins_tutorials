@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage {
+        stage ('stage1_a') {
             steps {
                 CatchError('buildResult':'SUCCESS','stageResult':'FAILURE') {
                 sh '''
@@ -12,7 +12,7 @@ pipeline {
             } 
             
         }
-        stage {
+        stage ('stage1_b'){
             steps {
                 try {
                     sh '''
