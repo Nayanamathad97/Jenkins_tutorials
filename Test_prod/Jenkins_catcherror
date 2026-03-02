@@ -14,15 +14,17 @@ pipeline {
         }
         stage ('stage1_b'){
             steps {
-                try {
-                    sh '''
-                    sleep 2
-                    exit 1
-                    '''
-                }
+                script {
+                    try {
+                        sh '''
+                        sleep 2
+                        exit 1
+                        '''
+                    }
                 catch (err) {
                     echo "Error caught: ${err}"
                     currentBuild.reult = 'SUCCESS'
+                    }
                 }
             }
         }
