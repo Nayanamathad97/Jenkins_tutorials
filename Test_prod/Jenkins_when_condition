@@ -66,7 +66,7 @@ pipeline {
                 expression { params.DEPLOY == true }
             }
             steps {
-                echo "This is FINAL running"
+                echo "Thiss is FINAL running"
                 sh 'sleep 5'
             }
         }
