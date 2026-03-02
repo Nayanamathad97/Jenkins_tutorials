@@ -1,0 +1,62 @@
+pipeline {
+    parameters {
+        booleanParam(name:'DEPLOY' , description:'want to deploy to production')
+    }
+    environment {
+        CURRENT.ENV = 'prod'
+    }
+    stages {
+        Stage('CHECKOUT REPOA') {
+            steps {
+                checkout ([ $class: 'GitSCM',
+                            branches: [[name: '*/main']], 
+                            extensions: [], 
+                            userRemoteConfigs: [[
+                                credentialsId: 'jaintpharsha', 
+                                url: 'https://github.com/jaintpharsha/mern_3tire.git'
+                            ]]
+                        ])
+                        sh '''
+                        echo GIT_BRANCH : $GIT_BRANCH
+                        echo BRANCH_NAME : $BRANCH_NAME
+                        '''
+            }
+        }
+        Stage('STAGE1 when branch main') {
+            when {
+                expression(return env.GIT_BRANCH == 'origin/main')
+            }
+            steps {
+                echo "Stage1 running"
+                sh '''
+                pwd
+                ls -lrt
+                '''
+            }   
+        }
+        Stage('when environment') {
+            when {
+                environment name: 'CURRENT.ENV', Value : 'prod'
+            }
+            steps {
+                echo "Stage2 running"
+                sh '''
+                pwd
+                sleep 5
+                '''
+            }
+        }
+        Stage('when parameter') {
+            when {
+                expression(URLSearchParams.deploy == true)
+            }
+            steps {
+                echo "This is final"
+                sh '''
+                pwd
+                sleep 3
+                '''
+            }
+        }
+    }    
+}
