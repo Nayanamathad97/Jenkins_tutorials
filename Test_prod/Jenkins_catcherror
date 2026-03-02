@@ -32,7 +32,7 @@ pipeline {
                 stage('WINDOWS TESTING') {
                     steps {
                         echo "WT"
-                        sh 'sleep2'
+                        sh 'sleep 2'
                     }                   
                 }
                 stage('MACOS TESTING') {
