@@ -6,8 +6,8 @@ pipeline {
                 catchError('buildResult':'SUCCESS','stageResult':'FAILURE') {
                     echo "this is stage1_a"
                     sh '''
-                    sleep 3
-                    exit 1
+                        sleep 3
+                        exit 1
                     '''
                 }
             }
@@ -17,8 +17,8 @@ pipeline {
                 script {
                     try {
                         sh ''' 
-                        sleep 2
-                        exit 1 '''
+                            sleep 2
+                            exit 1 '''
                     }
                     catch (err) {
                         echo "error caught: ${err}"
