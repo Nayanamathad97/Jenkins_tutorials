@@ -1,21 +1,21 @@
 pipeline{
     agent any
-    stages{
-        stage('STAGE1'){
-            steps{
+    stages {
+        stage('STAGE1') {
+            steps {
                 echo "this is stage1"
                 sh 'sleep 5'
             }
         }
-        stage('PARALLEL TESTING'){
-            PARALLEL{
-                stage('WINDOWS TESTING'){
-                    steps{
+        stage('PARALLEL TESTING') {
+            PARALLEL {
+                stage('WINDOWS TESTING') {
+                    steps {
                         echo "This is parallel windows testing"
                         sh 'pwd'
                     }
                 }
-                stage('MACOS TESTING'){
+                stage('MACOS TESTING') {
                     steps{
                         echo "This is parallel macos testing"
                         sh 'pwd'                    
@@ -23,8 +23,8 @@ pipeline{
                 }
             }
         }
-        stage('FINAL'){
-            steps{
+        stage('FINAL') {
+            steps {
                 echo "This is final"
             }
         }
