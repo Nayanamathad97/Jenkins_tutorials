@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    stages {
+        stage {
+            steps {
+                CatchError('buildResult':'SUCCESS','stageResult':'FAILURE')
+                sh '''
+                sleep 5
+                exit 1
+                '''
+            } 
+            
+        }
+        stage {
+            steps {
+                try {
+                    sh '''
+                    sleep 2
+                    exit 1
+                    '''
+                }
+                catch (err) {
+                    echo "Error caught: ${err}"
+                    currentBuild.reult = 'SUCCESS'
+                }
+            }
+        }
+        stage ('PARALLEL TESTING') {
+            parallel {
+                stage ('WINDOWS TESTING') {
+                    steps {
+                        echo "This is WT"
+                    }
+                }
+                stage ('MACOS TESTING') {
+                    steps {
+                        echo "This is MT"
+                    }
+                }
+            }
+        }
+        stage ('FINAL') {
+            steps {
+                echo "This is finale"
+            }
+        }
+        
+    }
+}
