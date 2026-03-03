@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('STAGE1') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo "running in branch"
+                sh 'pwd'
+            }
+        }
+    }
+
+}
