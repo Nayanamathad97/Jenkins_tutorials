@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        stage('STAGE1'){
+            catcherror(buildResult:'SUCCESS',stageResult:'FAILURE') {
+                echo "=====test======"
+                sh 'pwd'
+            }
+        }
+        stage('PARALLEL TESTING') {
+            parallel {
+                stage('one') {
+                    steps {
+                        echo "parallel 1"
+                        sh 'ls -lrt'
+                    }
+                }
+                stage('two') {
+                    steps {
+                        echo "parallel 2"
+                        sh 'sleep 4'
+                    }
+                }
+            }
+        }
+    }
+}
