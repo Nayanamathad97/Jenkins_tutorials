@@ -49,7 +49,7 @@ pipeline {
         }
         stage('when parameter') {
             when {
-                expression {Params.deploy == true}
+                expression {params.deploy == true}
             }
             steps {
                 echo "This is final"
