@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    parameters {
+        booleanParam(name:debugBuild, description:need to debug the build)
+    }
+    stages {
+        stage('STAGE1') {
+            echo "stage1 is running"
+            sh 'pwd'
+        }
+    }
+}
