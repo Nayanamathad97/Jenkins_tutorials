@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('CHECKOUT') {        
+            steps {
+                git branch: 'new_branch',
+                credentialsId: 'nayanamathad97@gmail.com',
+                url: 'https://github.com/Nayanamathad97/Jenkins_tutorials.git'
+            }
+        }
+        stage('STAGE1') {
+            steps {
+                echo "stage1 is success"
+            }
+        }
+    }
+}
