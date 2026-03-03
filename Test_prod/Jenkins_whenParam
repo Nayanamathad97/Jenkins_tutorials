@@ -1,12 +1,17 @@
 pipeline {
     agent any
     parameters {
-        booleanParam(name:debugBuild, description:need to debug the build)
+        booleanParam(name:'debugBuild', description:'need to debug the build')
     }
     stages {
         stage('STAGE1') {
+            when {
+                expression {params.name == true}
+            }
+            steps {
             echo "stage1 is running"
             sh 'pwd'
+            }
         }
     }
 }
