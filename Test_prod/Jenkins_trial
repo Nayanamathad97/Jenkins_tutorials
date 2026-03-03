@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('STAGE1'){
-            steps {
-                catcherror(buildResult:'SUCCESS',stageResult:'FAILURE') {
+        stage('STAGE1'){        
+            catcherror(buildResult:'SUCCESS',stageResult:'FAILURE') {
+                steps {
                     echo "=====test======"
                     sh 'pwd'
-                }
+                }                
             }
         }
         stage('PARALLEL TESTING') {
