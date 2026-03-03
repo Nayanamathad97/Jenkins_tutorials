@@ -1,0 +1,34 @@
+pipeline {
+    stages {
+        stage('STAGE1') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageRsult: 'FAILURE') {
+                    sh '''
+                    pwd
+                    sleep 5
+                    '''                   
+                }
+            }
+        }
+        stage('PARALLEL STAGING') {
+            parallel {
+                stage('STAGE3') {
+                    steps {
+                        echo "running parallel stage1"
+                        sh '''
+                        pwd
+                        ls -ltr
+                        '''
+                    }
+                }
+                stage('STAGE4') {
+                    steps {
+                        echo "running parallel satge 4"
+                        sh 'pwd'                 
+        
+                    }
+                }
+            }
+        }
+    }
+}
