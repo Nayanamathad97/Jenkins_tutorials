@@ -1,15 +1,32 @@
 pipeline {
-    agent {label 'slave2'}
-    environment {
-        user = 'Nayu'
-        user_id = '123'
+    agent any
+
+    parameters {
+        string(name:'NAME', defaultValue:'', description:'enter the name')
     }
+
+    environment {
+        live_env = 'dev'
+    }
+
     stages {
         stage('STAGE1') {
+            when {
+                expression {
+                    params.NAME == 'Nayu'
+                }
+            }
             steps {
-                echo "user : ${env.user}"
-                echo "user_id : ${env.user_id}"
-                sh 'env'
+                echo "===parameter==="
+            }
+        }
+        stage('STAGE2') {
+            when {
+                environment_name = 'live_env', value = 'dev'
+            }
+            steps {
+                echo "==environment=="
+                sh 'pwd'
             }
         }
     }
