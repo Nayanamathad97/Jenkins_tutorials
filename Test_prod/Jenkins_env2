@@ -1,0 +1,16 @@
+pipeline {
+    agent none
+    environment {
+        live_env = 'test'
+    }
+    stages {
+        stage('STAGE1') {
+            when {
+                live_env: 'to run', value: 'test'
+            }
+            steps {
+                echo "successfully ran in test"
+            }
+        }
+    }
+}
