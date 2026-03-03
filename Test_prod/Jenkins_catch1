@@ -3,7 +3,7 @@ pipeline {
         stage('STAGE1') {
             agent {label 'slave1'}
             steps {
-                catchError(buildResult: 'SUCCESS', stageRsult: 'FAILURE') {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh '''
                     pwd
                     sleep 5
