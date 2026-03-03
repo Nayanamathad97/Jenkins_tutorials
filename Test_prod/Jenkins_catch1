@@ -1,6 +1,7 @@
 pipeline {
     stages {
         stage('STAGE1') {
+            agent {label 'slave1'}
             steps {
                 catchError(buildResult: 'SUCCESS', stageRsult: 'FAILURE') {
                     sh '''
@@ -11,6 +12,7 @@ pipeline {
             }
         }
         stage('PARALLEL STAGING') {
+            agent {label 'slave2'}
             parallel {
                 stage('STAGE3') {
                     steps {
