@@ -1,28 +1,22 @@
 pipeline {
-    agent any
+    agent none
+    parameters {
+        string(name:'NAME', defaultValue:'',description:)
+        booleanParam(name:'SKIP_TEST', description:'want to skip_test')
+        choice(name:'SELECT', defaultValue:['One','Two','Three'], description:'select one option')
+    }
     stages {
-        stage('STAGE') {
+        stage('STAGE1') {
+            agent {label 'slave2'}
             steps {
-                catchError(buildResult : 'SUCCESS' , stageResult : 'FAILURE') {
-                    echo "===errorCaught===="
-                    sh 'pwd'
-                }
-            }
-        }
-        stage('PARALLEL TESTING') {
-            parallel {
-                stage('nayana') {
-                    steps {
-                        echo "===parallel1==="
-                        sh 'sleep 2'
-                    }
-                }
-                stage('Preetham') {
-                    steps {
-                        echo "===parallel2==="
-                        sh 'sleep 2'
-                    }
-                }
+                echo "name : ${params.NAME}"
+                echo "SKIP_TEST : ${params.SKIP_TEST}"
+                echo "SELECT : ${params.SELECT}"
+                sh '''
+                echo NAME: ${NAME}
+                echo SKIP_TEST: ${SKIP_TEST}
+                echo SELECT: ${SELECT}
+                '''
             }
         }
     }
