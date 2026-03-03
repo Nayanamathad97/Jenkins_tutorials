@@ -15,7 +15,7 @@ pipeline {
         }
         stage('STAGE1') {   
             when {
-                branch 'main'
+                expression { env.BRANCH_NAME == 'main' }
             }     
             steps {
                 echo "running in branch"
