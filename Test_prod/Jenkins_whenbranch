@@ -10,7 +10,7 @@ pipeline {
                 sh 'pwd'
             }
         }
-        stage('STAGE1') {   
+        stage('STAGE2') {   
             when {
                 expression { env.BRANCH_NAME == 'new_branch' }
             }     
