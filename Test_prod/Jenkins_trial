@@ -22,7 +22,7 @@ pipeline {
         }
         stage('STAGE2') {
             when {
-                environment_name = 'live_env', value = 'dev'
+                environment_name == 'live_env', value == 'dev'
             }
             steps {
                 echo "==environment=="
