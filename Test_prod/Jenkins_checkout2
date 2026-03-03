@@ -11,6 +11,9 @@ pipeline {
         stage('STAGE1') {
             steps {
                 echo "stage1 is success"
+                sh '''
+                cat checkout_test
+                '''
             }
         }
     }
