@@ -1,8 +1,14 @@
 pipeline {
     agent none
+
+    triggers {
+        cron(H/2 * * * *)
+    }
+
     environment {
         live_env = 'test'
     }
+    
     stages {
         stage('STAGE1') {
             when {
