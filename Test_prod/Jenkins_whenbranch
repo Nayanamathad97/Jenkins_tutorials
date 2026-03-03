@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('STAGE1') {   
             when {
-                expression { env.BRANCH_NAME == 'main' }
-            }     
+                branch 'main' 
+            }                
             steps {
                 echo "running in branch"
                 sh 'pwd'
@@ -12,7 +12,7 @@ pipeline {
         }
         stage('STAGE2') {   
             when {
-                expression { env.BRANCH_NAME == 'new_branch' }
+                branch 'new_branch' 
             }     
             steps {
                 echo "running in new_branch"
