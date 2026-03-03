@@ -1,7 +1,7 @@
 pipeline {
     agent none
     parameters {
-        string(name:'NAME', defaultValue:'',description:)
+        string(name:'NAME', defaultValue:'',description:'')
         booleanParam(name:'SKIP_TEST', description:'want to skip_test')
         choice(name:'SELECT', defaultValue:['One','Two','Three'], description:'select one option')
     }
