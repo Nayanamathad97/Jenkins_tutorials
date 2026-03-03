@@ -12,6 +12,7 @@ pipeline {
                 echo "name : ${params.NAME}"
                 echo "SKIP_TEST : ${params.SKIP_TEST}"
                 echo "SELECT : ${params.SELECT}"
+                
                 sh '''
                 echo NAME: ${NAME}
                 echo SKIP_TEST: ${SKIP_TEST}
