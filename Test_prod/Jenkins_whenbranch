@@ -10,6 +10,14 @@ pipeline {
                 sh 'pwd'
             }
         }
+        stage('STAGE1') {   
+            when {
+                expression { env.BRANCH_NAME == 'new_branch' }
+            }     
+            steps {
+                echo "running in new_branch"
+                sh 'pwd'
+            }
+        }
     }
-
 }
