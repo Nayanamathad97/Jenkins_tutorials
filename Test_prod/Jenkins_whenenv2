@@ -16,7 +16,6 @@ pipeline {
             }
             steps {
                 echo "successfully ran in test"
-                sh 'pwd'
             }
         }
     }
