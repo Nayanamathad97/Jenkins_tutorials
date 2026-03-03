@@ -3,7 +3,7 @@ pipeline {
     parameters {
         string(name:'NAME', defaultValue:'',description:'')
         booleanParam(name:'SKIP_TEST', description:'want to skip_test')
-        choice(live_env:'SELECT', choices:['One','Two','Three'], description:'select one option')
+        choice(name:'SELECT', choices:['One','Two','Three'], description:'select one option')
     }
     stages {
         stage('STAGE1') {
