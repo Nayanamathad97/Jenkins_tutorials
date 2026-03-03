@@ -8,7 +8,7 @@ pipeline {
     environment {
         live_env = 'test'
     }
-    
+
     stages {
         stage('STAGE1') {
             when {
@@ -16,6 +16,7 @@ pipeline {
             }
             steps {
                 echo "successfully ran in test"
+                sh 'pwd'
             }
         }
     }
