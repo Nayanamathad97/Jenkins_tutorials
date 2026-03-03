@@ -9,10 +9,7 @@ pipeline {
             steps {
                 echo "user : ${env.user}"
                 echo "user_id : ${env.user_id}"
-                sh '''
-                echo user : ${user}
-                echo user_id : ${user_id}
-                '''
+                sh 'env'
             }
         }
     }
