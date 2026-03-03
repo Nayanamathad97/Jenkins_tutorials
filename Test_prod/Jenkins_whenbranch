@@ -8,10 +8,7 @@ pipeline {
                 url: 'https://github.com/Nayanamathad97/Jenkins_tutorials.git'
             }            
         }
-        stage('STAGE1') {
-            when {
-                branch 'main'
-            }
+        stage('STAGE1') {        
             steps {
                 echo "running in branch"
                 sh 'pwd'
