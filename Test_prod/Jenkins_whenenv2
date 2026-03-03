@@ -1,8 +1,5 @@
 pipeline {
-    agent any
-
-    triggers {
-        cron('H/2 * * * *')
+    agent any   
     }
 
     environment {
@@ -16,6 +13,7 @@ pipeline {
             }
             steps {
                 echo "successfully ran in test"
+                sh 'pwd'
             }
         }
     }
