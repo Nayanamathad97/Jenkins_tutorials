@@ -1,13 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage('CHECKOUT') {
-             steps {
-                 git (branch: 'main',
-                 credentialsId: 'nayanamathad97@gmail.com',
-                 url: 'https://github.com/Nayanamathad97/Jenkins_tutorials.git')
-             }            
-         }
+        stage('CHECKOUT_REPOA') {
+        steps {
+            checkout ([ $class: 'GitSCM',
+                branches: [[name: '*/main']], 
+                extensions: [], 
+                userRemoteConfigs: [[
+                    credentialsId: 'nayanamathad97@gmail.com', 
+                    url: 'https://github.com/Nayanamathad97/Jenkins_practice.git'
+                    ]]
+                ])        
+            }
+        }
         stage('STAGE1') {   
             when {
                 branch 'main'
