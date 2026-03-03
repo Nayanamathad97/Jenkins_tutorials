@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('STAGE1') {
             when {
-                expression {params.name == true}
+                expression {params.debugBuild == true}
             }
             steps {
             echo "stage1 is running"
