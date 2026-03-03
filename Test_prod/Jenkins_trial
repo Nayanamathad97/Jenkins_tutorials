@@ -1,28 +1,26 @@
 pipeline {
     agent any
     stages {
-        stage('STAGE1') {      
-            steps {  
-                catchError(buildResult: 'SUCCESS',stageResult: 'FAILURE') 
-                    {
-                        echo "=====test======"
-                        sh 'pwd'
+        stage('STAGE') {
+            steps {
+                catchError(buildResult : 'SUCCESS' , stageResult : 'FAILURE') {
+                    echo "===errorCaught===="
+                    sh 'pwd'
                 }
-            }                
+            }
         }
-    
         stage('PARALLEL TESTING') {
             parallel {
-                stage('one') {
+                stage('nayana') {
                     steps {
-                        echo "parallel 1"
-                        sh 'ls -lrt'
+                        echo "===parallel1==="
+                        sh 'sleep 2'
                     }
                 }
-                stage('two') {
+                stage('Preetham') {
                     steps {
-                        echo "parallel 2"
-                        sh 'sleep 4'
+                        echo "===parallel2==="
+                        sh 'sleep 2'
                     }
                 }
             }
