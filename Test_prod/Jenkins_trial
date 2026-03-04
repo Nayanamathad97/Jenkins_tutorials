@@ -1,15 +1,15 @@
 pipeline {
     agent any
+
+    environment {
+        name = "nayu"
+    }
+
     stages {
         stage('STAGE1') {
             steps {
-                catchError(buildResult : 'SUCCESS', stageResult : 'FAILURE') {
-                    echo "==s1=="
-                    sh '''
-                    sleep 2
-                    pwd
-                    '''
-                }
+                echo "name: ${env.name}"
+                sh 'env'
             }
         }
     }
