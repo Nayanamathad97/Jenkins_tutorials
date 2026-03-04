@@ -1,15 +1,21 @@
 pipeline {
     agent any
-
-    environment {
-        name = "March 26"
+    parameters {
+        string(name:'NAME', description: 'this fiel is required')
     }
-
+    environment {
+        live_env = dev
+    }
     stages {
         stage('STAGE1') {
+            when {
+                name: 'live_env', value: 'dev'
+            }
             steps {
-                echo "name: ${env.name}"
-                sh 'env'
+                echo "==s1=="
+                sh '''
+                env
+                '''
             }
         }
     }
