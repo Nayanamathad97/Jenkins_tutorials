@@ -4,14 +4,16 @@ pipeline {
         stage('PARALLEL TESTING') {
             
             parallel {
-                agent {label 'slave1'}
+                
                 stage('STAGE1') {
+                    agent {label 'slave1'}
                     steps {
                         echo "===s1==="
                         sh 'pwd'
                     }
                 }
                 stage('STAGE2') {
+                    agent {label 'slave1'}
                     steps {
                         echo "==s2=="
                         sh 'pwd'
@@ -20,6 +22,7 @@ pipeline {
             }          
         }
         stage('FINAL') {
+            agent {label 'slave1'}
             steps {
                 echo "==final=="
             }
