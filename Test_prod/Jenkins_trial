@@ -1,32 +1,21 @@
 pipeline {
     agent any
-
     parameters {
         string(name:'NAME', defaultValue:'', description:'enter the name')
+        booleanParam(name:SKIP_TEST, description:'skip to run direct deployment')
+        choice(name:'SELECT', choices:['dev','test','stagging'], description:'select one')
     }
-
-    environment {
-        live_env = 'dev'
-    }
-
     stages {
         stage('STAGE1') {
-            when {
-                expression {
-                    params.NAME == 'Nayu'
-                }
-            }
             steps {
-                echo "===parameter==="
-            }
-        }
-        stage('STAGE2') {
-            when {
-                environment name: 'live_env', value: 'dev'
-            }
-            steps {
-                echo "==environment=="
-                sh 'pwd'
+                echo "NAME: ${params.NAME}"
+                echo "SKIP_TEST: ${params.SKIP_TEST}"
+                echo "SELECT: ${params.SELECT}"
+                sh '''
+                NAME: ${NAME}
+                SKIP_TEST: ${SKIP_TEST}
+                SELECT: ${SELECT}
+                '''
             }
         }
     }
