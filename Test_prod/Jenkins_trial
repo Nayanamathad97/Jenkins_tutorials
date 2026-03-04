@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('STAGE1') {
             when {
-                name: 'live_env', value: 'dev'
+                environment name: 'live_env', value: 'dev'
             }
             steps {
                 echo "==s1=="
