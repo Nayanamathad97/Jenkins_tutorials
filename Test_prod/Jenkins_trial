@@ -20,7 +20,7 @@ pipeline {
         }
         stage('STAGE2') {
             when {
-                expression(params.NAME == 'nayu')
+                expression {params.NAME == 'nayu'}
             }
             steps {
                 echo "==s2=="
