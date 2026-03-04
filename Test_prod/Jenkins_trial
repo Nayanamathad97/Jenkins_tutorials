@@ -1,21 +1,25 @@
 pipeline {
-    agent any
-    parameters {
-        string(name:'NAME', defaultValue:'', description:'enter the name')
-        booleanParam(name:'SKIP_TEST', description:'skip to run direct deployment')
-        choice(name:'SELECT', choices:['dev','test','stagging'], description:'select one')
-    }
+    agent none
     stages {
-        stage('STAGE1') {
+        stage('PARALLEL TESTING') {
+            parallel {
+                stage('STAGE1') {
+                    steps {
+                        echo "===s1==="
+                        sh 'pwd'
+                    }
+                }
+                stage('STAGE2') {
+                    steps {
+                        echo "==s2=="
+                        sh 'pwd'
+                    }
+                }
+            }          
+        }
+        stage('FINAL') {
             steps {
-                echo "NAME: ${params.NAME}"
-                echo "SKIP_TEST: ${params.SKIP_TEST}"
-                echo "SELECT: ${params.SELECT}"
-                sh '''
-                echo NAME: ${NAME}
-                echo SKIP_TEST: ${SKIP_TEST}
-                echo SELECT: ${SELECT}
-                '''
+                echo "==final=="
             }
         }
     }
