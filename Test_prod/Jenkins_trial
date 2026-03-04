@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        name = "nayu"
+        name = "March 26"
     }
 
     stages {
