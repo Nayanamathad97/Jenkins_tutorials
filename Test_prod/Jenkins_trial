@@ -22,8 +22,9 @@ pipeline {
             when {
                 expression(params.NAME == 'nayu')
             }
-        }steps {
-            echo "==s2=="
+            steps {
+                echo "==s2=="
+            }
         }
     }
 }
