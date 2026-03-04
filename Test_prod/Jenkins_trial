@@ -1,30 +1,15 @@
 pipeline {
-    agent none
+    agent any
     stages {
-        stage('PARALLEL TESTING') {
-            
-            parallel {
-                
-                stage('STAGE1') {
-                    agent {label 'slave1'}
-                    steps {
-                        echo "===s1==="
-                        sh 'pwd'
-                    }
-                }
-                stage('STAGE2') {
-                    agent {label 'slave1'}
-                    steps {
-                        echo "==s2=="
-                        sh 'pwd'
-                    }
-                }
-            }          
-        }
-        stage('FINAL') {
-            agent {label 'slave1'}
+        stage('STAGE1') {
             steps {
-                echo "==final=="
+                catchError(buildResult : 'SUCCESS', stageResult : 'FAILURE') {
+                    echo "==s1=="
+                    sh '''
+                    sleep 2
+                    pwd
+                    '''
+                }
             }
         }
     }
