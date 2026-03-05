@@ -6,7 +6,7 @@ pipeline {
         disableConcurrentBuilds(abortPrevious : true)
         buildDiscarder(logRotator(numToKeepStr: '2'))
         disableResume()
-        timeout(time: 2, units: 'MINUTES')
+        timeout(time: 2, unit: 'MINUTES')
     }
 
     stages {
