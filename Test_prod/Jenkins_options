@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    
+    options {
+        ansiColor('xterm')
+    }
+
+    stages {
+        stage('STAGE1') {
+            steps {
+                echo "STAGE - 1"
+                sh 'pwd'
+            }
+        }
+    }
+}
