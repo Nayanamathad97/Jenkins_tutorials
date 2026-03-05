@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('STAGE1') {
             steps {
-                echo "\033[31mPreetham \033[35mNayana \033[30m \033[44m" 
+                echo "\033[31mPreetham \033[35mNayana \033[32m \033[44m" 
                 sh 'pwd'
             }
         }
