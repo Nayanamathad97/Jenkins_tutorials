@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('STAGE1') {
             steps {
-                echo "STAGE - 1"
+                echo "\e[31mPreetham"
                 sh 'pwd'
             }
         }
