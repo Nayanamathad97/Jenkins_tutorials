@@ -7,7 +7,7 @@ pipeline {
                     echo "this is stage1_a"
                     sh '''
                         sleep 3
-                        exit 10
+                        exit 1
                     '''
                 }
             }
