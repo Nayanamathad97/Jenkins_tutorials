@@ -45,7 +45,7 @@ pipeline {
         }
         stage('FINAL') {
             steps {
-                echo "Finale New"
+                echo "Finale New 2"
             }
         }
     }
